@@ -22,18 +22,7 @@
     <!-- HTMX  allows you to access modern browser features directly from HTML, rather than using javascript -->
     <!-- @see https://htmx.org/docs/#introduction -->
 
-    <!-- TIP: hx-swap='outerHTML' tells htmx to replace the button with the posts data instead of adding the data inside like default (innerHTML) -->
-    <!-- TIP: hx-push-url allows to add this ajax call to history so we can add a back button in posts.html -->
-    <!-- TIP: you can use hx-target='elementId' to specify where the response html should appear (by default it will appear inside the current element that triggers the call) -->
-    <button
-      hx-get="/posts"
-      hx-trigger="click"
-      hx-swap="outerHTML"
-      hx-push-url="true"
-    >
-      See posts
-    </button>
-
+    <a href="/posts">Posts</a>
     <a href="/contacts">Contacts</a>
   </body>
 </html>

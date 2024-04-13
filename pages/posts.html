@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTMX - Posts</title>
+
+    <!-- FAVICON -->
+    <link rel="icon" href="favicon.svg" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- HTMX CDN -->
+    <script
+      src="https://unpkg.com/htmx.org@1.9.11"
+      integrity="sha384-0gxUXCCR8yv9FM2b+U3FDbsKthCI66oH5IA9fHppQq9DDMHuMauqq1ZHBpJxQ0J0"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <a href="/">Home</a>
+
+    <h1>Posts</h1>
+
+    <!-- TIP: hx-swap='outerHTML' tells htmx to replace the button with the posts data instead of adding the data inside like default (innerHTML) -->
+    <!-- TIP: hx-push-url allows to add this ajax call to history so we can add a back button in posts.html -->
+    <!-- TIP: you can use hx-target='elementId' to specify where the response html should appear (by default it will appear inside the current element that triggers the call) -->
+    <button
+      hx-get="/api/posts"
+      hx-trigger="click"
+      hx-swap="outerHTML"
+      hx-push-url="true"
+    >
+      See posts
+    </button>
+  </body>
+</html>
