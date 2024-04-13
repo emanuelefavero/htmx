@@ -27,11 +27,17 @@
       type="search"
       name="search"
       placeholder="Search contacts"
-      hx-post="/search"
+      hx-post="/api/search-contacts"
       hx-trigger="input changed delay:500ms, search"
-      hx-target="#search-results"
+      hx-target="#search-contacts-output"
+      style="margin-bottom: 0.5rem"
     />
 
-    <div id="search-results"></div>
+    <ul
+      id="search-contacts-output"
+      hx-get="/api/all-contacts"
+      hx-trigger="load"
+      style="list-style-type: none; padding: 0; margin: 0"
+    ></ul>
   </body>
 </html>
