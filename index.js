@@ -11,6 +11,9 @@ app.use(express.static('public'))
 // Middleware to parse request bodies
 app.use(express.urlencoded({ extended: true }))
 
+// Middleware to parse JSON bodies
+app.use(express.json())
+
 // Use routes
 app.use('/', pagesRouter) // Use pages routes
 app.use('/api', apiRouter) // Use API routes under the /api prefix
