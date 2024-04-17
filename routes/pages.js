@@ -17,6 +17,10 @@ pagesRouter.get('/posts', (req, res) => {
   res.sendFile(path.join(__dirname, '../pages/posts.html'))
 })
 
+pagesRouter.get('/users', (req, res) => {
+  res.sendFile(path.join(__dirname, '../pages/users.html'))
+})
+
 pagesRouter.get('/contacts', (req, res) => {
   res.sendFile(path.join(__dirname, '../pages/contacts.html'))
 })

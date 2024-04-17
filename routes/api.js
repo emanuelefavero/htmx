@@ -15,6 +15,14 @@ apiRouter.get('/posts', (req, res) => {
   res.sendFile(path.join(__dirname, '../api/posts.html'))
 })
 
+// * users - GET users from json placeholder API
+apiRouter.get('/users', async (req, res) => {
+  const response = await fetch('https://jsonplaceholder.typicode.com/users')
+  const users = await response.json()
+
+  res.send(`${users.map((user) => `<li>${user.name}</li>`).join('')}`)
+})
+
 // * contacts
 apiRouter.get('/all-contacts', (req, res) => {
   const resultsHTML = contacts
