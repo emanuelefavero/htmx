@@ -20,7 +20,14 @@ apiRouter.get('/users', async (req, res) => {
   const response = await fetch('https://jsonplaceholder.typicode.com/users')
   const users = await response.json()
 
-  res.send(`${users.map((user) => `<li>${user.name}</li>`).join('')}`)
+  res.send(
+    `${users
+      .map(
+        (user) =>
+          `<li style='margin-bottom: 0.25rem;'><span style='font-weight: bold;'>${user.name}</span> <span style='color: #6b7280;'>${user.email}</span></li>`
+      )
+      .join('')}`
+  )
 })
 
 // * contacts
