@@ -23,17 +23,28 @@
 
     <h1 class="title">Temperature</h1>
 
-    <form>
+    <form
+      hx-trigger="submit"
+      hx-post="/api/temperature"
+      hx-target="#temperature-result"
+      hx-indicator="#loading"
+    >
       <label for="fahrenheit">Fahrenheit:</label>
       <input
         type="number"
         id="fahrenheit"
         name="fahrenheit"
         placeholder="Enter temperature"
-        value="32"
+        value="100"
         required
       />
       <button type="submit">Convert</button>
     </form>
+
+    <div id="temperature-result" style="margin-top: 0.5rem"></div>
+
+    <div class="htmx-indicator loading-indicator-container" id="loading">
+      <img src="images/loading.gif" alt="Loading..." />
+    </div>
   </body>
 </html>

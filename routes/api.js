@@ -78,4 +78,12 @@ apiRouter.post('/search-contacts', (req, res) => {
   res.send(resultsHTML)
 })
 
+// * temperature - POST temperature data
+apiRouter.post('/temperature', (req, res) => {
+  const fahrenheit = parseFloat(req.body.fahrenheit)
+  const celsius = (fahrenheit - 32) * (5 / 9)
+
+  res.send(`${fahrenheit}°F is ${Math.round(celsius)}°C`)
+})
+
 export default apiRouter
