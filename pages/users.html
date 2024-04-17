@@ -27,7 +27,14 @@
     <ul
       hx-get="/api/users"
       hx-trigger="load"
+      hx-indicator="#loading"
       style="list-style-type: none; padding: 0; margin: 0"
     ></ul>
+
+    <!-- Loading indicator -->
+    <!-- TIP: The indicator needs to have a class of `htmx-indicator` to be hidden when the data loads -->
+    <div class="htmx-indicator loading-indicator-container" id="loading">
+      <img src="images/loading.gif" alt="Loading..." />
+    </div>
   </body>
 </html>
