@@ -26,6 +26,7 @@
     <!-- TIP: hx-swap='outerHTML' tells htmx to replace the button with the posts data instead of adding the data inside like default (innerHTML) -->
     <!-- TIP: hx-push-url allows to add this ajax call to history so we can add a back button in posts.html -->
     <!-- TIP: you can use hx-target='elementId' to specify where the response html should appear (by default it will appear inside the current element that triggers the call) -->
+    <!-- TIP: You can use hx-confirm="Are you sure?" to show a confirm menu -->
     <button
       hx-get="/api/posts"
       hx-trigger="click"
