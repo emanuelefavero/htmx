@@ -111,6 +111,14 @@ input {
   border-radius: 0.5rem;
 }
 
+ul {
+  list-style-type: none;
+}
+
+h1.title {
+  margin-bottom: 0.5rem;
+}
+
 .loading-indicator-container {
   width: 100%;
   display: flex;

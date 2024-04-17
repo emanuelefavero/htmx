@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HTMX - Contacts</title>
+    <title>HTMX - Temperature</title>
 
     <!-- FAVICON -->
     <link rel="icon" href="favicon.svg" />
@@ -21,23 +21,19 @@
   <body>
     <a href="/">Home</a>
 
-    <h1 class="title">Search Contacts</h1>
+    <h1 class="title">Temperature</h1>
 
-    <input
-      type="search"
-      name="search"
-      placeholder="Search contacts"
-      hx-post="/api/search-contacts"
-      hx-trigger="input changed delay:500ms, search"
-      hx-target="#search-contacts-output"
-      style="margin-bottom: 0.5rem"
-    />
-
-    <ul
-      id="search-contacts-output"
-      hx-get="/api/all-contacts"
-      hx-trigger="load"
-      style="list-style-type: none; padding: 0; margin: 0"
-    ></ul>
+    <form>
+      <label for="fahrenheit">Fahrenheit:</label>
+      <input
+        type="number"
+        id="fahrenheit"
+        name="fahrenheit"
+        placeholder="Enter temperature"
+        value="32"
+        required
+      />
+      <button type="submit">Convert</button>
+    </form>
   </body>
 </html>
