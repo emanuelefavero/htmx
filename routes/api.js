@@ -119,4 +119,49 @@ apiRouter.post('/weather', async (req, res) => {
   )
 })
 
+// * validation - handle POST email validation
+apiRouter.post('/validate/email', (req, res) => {
+  const { email } = req.body
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  const isValidEmail = emailRegex.test(email)
+
+  if (isValidEmail) {
+    res.send(`
+    <div hx-target="this" hx-swap="outerHTML">
+      <label for="email">Email:</label>
+      <input
+        hx-post="/api/validate/email"
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Email"
+        required
+        style="margin-bottom: 0.5rem"
+        value="${email}"
+      />
+
+      <div style="margin-top: 0.5rem; color: green;">Email is valid</div>
+    </div>
+    `)
+  } else {
+    res.send(`
+    <div hx-target="this" hx-swap="outerHTML">
+      <label for="email">Email:</label>
+      <input
+      hx-post="/api/validate/email"
+      type="email"
+      id="email"
+      name="email"
+      placeholder="Email"
+      required
+      style="margin-bottom: 0.5rem"
+      value="${email}"
+      />
+
+      <div style="margin-top: 0.5rem; color: red;">Email is invalid</div>
+    </div>
+    `)
+  }
+})
+
 export default apiRouter

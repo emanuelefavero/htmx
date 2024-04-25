@@ -37,4 +37,8 @@ pagesRouter.get('/weather', (req, res) => {
   res.sendFile(path.join(__dirname, '../pages/weather.html'))
 })
 
+pagesRouter.get('/validation', (req, res) => {
+  res.sendFile(path.join(__dirname, '../pages/validation.html'))
+})
+
 export default pagesRouter

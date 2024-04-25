@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTMX - Form Validation</title>
+
+    <!-- FAVICON -->
+    <link rel="icon" href="favicon.svg" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- HTMX CDN -->
+    <script
+      src="https://unpkg.com/htmx.org@1.9.11"
+      integrity="sha384-0gxUXCCR8yv9FM2b+U3FDbsKthCI66oH5IA9fHppQq9DDMHuMauqq1ZHBpJxQ0J0"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <a href="/">Home</a>
+
+    <h1 class="title">Form Validation</h1>
+
+    <form>
+      <div hx-target="this" hx-swap="outerHTML">
+        <label for="email">Email:</label>
+        <input
+          hx-post="/api/validate/email"
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Email"
+          required
+          style="margin-bottom: 0.5rem"
+        />
+      </div>
+
+      <!-- <button style="margin-bottom: 0.5rem">Submit</button> -->
+    </form>
+  </body>
+</html>
