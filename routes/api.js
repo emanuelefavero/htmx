@@ -56,6 +56,12 @@ apiRouter.get('/all-contacts', (req, res) => {
 
 apiRouter.post('/search-contacts', (req, res) => {
   const query = req.body.search.toLowerCase()
+
+  // ? Uncomment the following line if you want to return a message when no results are found (instead of returning all contacts)
+  // if (!query) {
+  //   return res.send('No results found. Please enter a valid search query.')
+  // }
+
   const filteredContacts = contacts.filter((contact) => {
     return (
       contact.firstName.toLowerCase().includes(query) ||
