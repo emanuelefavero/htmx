@@ -86,4 +86,13 @@ apiRouter.post('/temperature', (req, res) => {
   res.send(`${fahrenheit}°F is ${Math.round(celsius)}°C`)
 })
 
+// * polling - GET updated data
+let counter = 0
+apiRouter.get('/polling', (req, res) => {
+  counter++
+  res.send(
+    `<code style='color: #10b981; font-weight: bold; font-size: 2rem;'>${counter}</code>`
+  )
+})
+
 export default apiRouter

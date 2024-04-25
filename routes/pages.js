@@ -29,4 +29,8 @@ pagesRouter.get('/temperature', (req, res) => {
   res.sendFile(path.join(__dirname, '../pages/temperature.html'))
 })
 
+pagesRouter.get('/polling', (req, res) => {
+  res.sendFile(path.join(__dirname, '../pages/polling.html'))
+})
+
 export default pagesRouter
