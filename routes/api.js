@@ -158,7 +158,7 @@ apiRouter.post('/validate/email', (req, res) => {
       value="${email}"
       />
 
-      <div style="margin-top: 0.5rem; color: red;">Email is invalid</div>
+      <div style="margin-top: 0.5rem; color: red;">Please enter a valid email address</div>
     </div>
     `)
   }
