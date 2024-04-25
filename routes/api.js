@@ -95,4 +95,22 @@ apiRouter.get('/polling', (req, res) => {
   )
 })
 
+// * weather - POST city and get weather data
+apiRouter.post('/weather', async (req, res) => {
+  const apiKey = process.env.OPEN_WEATHER_API_KEY
+  const base = 'https://api.openweathermap.org/data/2.5/'
+  const { city } = req.body
+
+  const response = await fetch(
+    `${base}weather?q=${city}&units=metric&APPID=${apiKey}`
+  )
+  const weatherData = await response.json()
+
+  res.send(
+    `It's ${Math.round(weatherData.main.temp)}°C in ${weatherData.name}, ${
+      weatherData.sys.country
+    }`
+  )
+})
+
 export default apiRouter

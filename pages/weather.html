@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTMX - Weather</title>
+
+    <!-- FAVICON -->
+    <link rel="icon" href="favicon.svg" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- HTMX CDN -->
+    <script
+      src="https://unpkg.com/htmx.org@1.9.11"
+      integrity="sha384-0gxUXCCR8yv9FM2b+U3FDbsKthCI66oH5IA9fHppQq9DDMHuMauqq1ZHBpJxQ0J0"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <a href="/">Home</a>
+
+    <h1 class="title">Weather</h1>
+
+    <form
+      hx-trigger="submit"
+      hx-post="/api/weather"
+      hx-target="#weather-result"
+      hx-indicator="#loading"
+    >
+      <label for="fahrenheit">City:</label>
+      <input
+        type="text"
+        id="city"
+        name="city"
+        placeholder="Enter city"
+        required
+      />
+      <button type="submit">Get Weather</button>
+    </form>
+
+    <div id="weather-result" style="margin-top: 0.5rem"></div>
+
+    <div class="htmx-indicator loading-indicator-container" id="loading">
+      <img src="images/loading.gif" alt="Loading..." />
+    </div>
+  </body>
+</html>
